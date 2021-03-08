@@ -45,7 +45,7 @@ class Pagelet:
 
     permission = None
 
-    def __init__(self, context, request):
+    def __init__(self, context, request, *args, **kwargs):  # pylint: disable=unused-argument
         self.context = context
         self.request = request
         if self.permission and not request.has_permission(self.permission):
