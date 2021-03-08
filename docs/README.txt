@@ -26,7 +26,7 @@ What is PyAMS_pagelet?
 This package is a small rewrite of z3c.pagelet package for use with Pyramid and PyAMS.
 
 PyAMS_template allows to separate a view's Python code from it's template implementation, so that
-this template can be easilly overriden for a given view or a given layer; it also allows to
+this template can be easily overriden for a given context, layer or view; it also allows to
 separate a "content" template from a "layout" template which is handling all common elements in
 a web page.
 

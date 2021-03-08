@@ -1,6 +1,13 @@
 Changelog
 =========
 
+1.2.0
+-----
+ - remove support for Python < 3.7
+ - added optional arguments to Pagelet constructor (which can be required when Pagelet is
+   used as a mixin parent class)
+ - doctests updates
+
 1.1.2
 -----
  - updated Gitlab-CI configuration
