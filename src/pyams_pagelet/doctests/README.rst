@@ -11,6 +11,8 @@ Let's start by creating a new template:
     >>> config = setUp(hook_zca=True)
     >>> config.add_request_method(get_annotations, 'annotations', reify=True)
 
+    >>> from cornice import includeme as include_cornice
+    >>> include_cornice(config)
     >>> from pyams_utils import includeme as include_utils
     >>> include_utils(config)
     >>> from pyams_template import includeme as include_template
