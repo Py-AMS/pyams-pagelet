@@ -23,7 +23,7 @@ __docformat__ = 'restructuredtext'
 
 
 if sys.argv[-1].endswith('/bin/test'):
-    """Testing only!"""
+    # Testing only!
 
     @pagelet_config(name='testing.html')
     class PageletTestView:

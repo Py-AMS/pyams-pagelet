@@ -48,5 +48,5 @@ class PageletCreatedEvent(ObjectEvent):
     """Pagelet created event"""
 
     def __init__(self, object):  # pylint: disable=redefined-builtin
-        super(PageletCreatedEvent, self).__init__(object)
+        super().__init__(object)
         self.request = object.request
