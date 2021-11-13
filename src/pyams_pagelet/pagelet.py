@@ -24,7 +24,8 @@ from pyramid.interfaces import IRequest
 from pyramid.response import Response
 from zope.interface import Interface, implementer
 
-from pyams_pagelet.interfaces import IPagelet, IPageletRenderer, PageletCreatedEvent
+from pyams_pagelet.interfaces import IPagelet, IPageletRenderer, PageletCreatedEvent, \
+    PageletUpdatedEvent
 from pyams_template.template import get_content_template, get_layout_template
 from pyams_utils.adapter import adapter_config
 
@@ -57,6 +58,7 @@ class Pagelet:
         annotations = getattr(self.request, 'annotations', None)
         if annotations is not None:
             annotations['view'] = self
+        self.request.registry.notify(PageletUpdatedEvent(self))
 
     def render(self):
         """See `zope.contentprovider.interfaces.IContentProvider`"""

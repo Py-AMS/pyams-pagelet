@@ -37,16 +37,35 @@ class IPageletRenderer(IContentProvider):
     """Render a pagelet by calling it's 'render' method"""
 
 
-class IPageletCreatedEvent(IObjectEvent):
-    """Pagelet created event interface"""
+class IBasePageletEvent(IObjectEvent):
+    """Base pagelet event interface"""
 
+    context = Attribute('The context object')
     request = Attribute('The request object')
 
 
+class IPageletCreatedEvent(IBasePageletEvent):
+    """Pagelet creation event interface"""
+
+
+class IPageletUpdatedEvent(IBasePageletEvent):
+    """Pagelet updated event interface"""
+
+
+class BasePageletEvent(ObjectEvent):
+    """Base pagelet event"""
+
+    def __init__(self, obj):
+        super().__init__(obj)
+        self.context = obj.context
+        self.request = obj.request
+
+
 @implementer(IPageletCreatedEvent)
-class PageletCreatedEvent(ObjectEvent):
+class PageletCreatedEvent(BasePageletEvent):
     """Pagelet created event"""
 
-    def __init__(self, object):  # pylint: disable=redefined-builtin
-        super().__init__(object)
-        self.request = object.request
+
+@implementer(IPageletUpdatedEvent)
+class PageletUpdatedEvent(BasePageletEvent):
+    """Pagelet updated event"""
