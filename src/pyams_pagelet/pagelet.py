@@ -141,7 +141,7 @@ class pagelet_config:  # pylint: disable=invalid-name
                 settings.pop('venusian')
             config.add_view(view=new_class, **settings)
 
-        info = self.venusian.attach(wrapped, callback, category='pyams_pagelet',
+        info = self.venusian.attach(wrapped, callback, category='pyramid',
                                     depth=depth + 1)
 
         if info.scope == 'class':  # pylint: disable=no-member
