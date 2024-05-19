@@ -49,7 +49,7 @@ class Pagelet:
     def __init__(self, context, request, *args, **kwargs):  # pylint: disable=unused-argument
         self.context = context
         self.request = request
-        if self.permission and not request.has_permission(self.permission):
+        if self.permission and not request.has_permission(self.permission, context=context):
             raise HTTPUnauthorized('You are not authorized to access the page called `%s`.' %
                                    request.view_name)
 
