@@ -1,6 +1,10 @@
 Changelog
 =========
 
+2.0.2
+-----
+ - added context argument to request permission checker
+
 2.0.1
 -----
  - updated Buildout configuration
